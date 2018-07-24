@@ -1,0 +1,197 @@
+//cooloes.co
+//Declaração das variaveis
+$my-color-1: #DB2B39;
+$my-color-2: #235789;
+$my-color-3: #2D3142;
+$my-color-4: #BFC0C0;
+$my-color-5: #FFFFFF;
+$drop-menu-color: #3c97ff;
+$drop-menu-hover-color: #3b7bd5;
+$font-drop-menu-color: #FFFFFF;
+$menu-item-color: #235789;
+$menu-item-hover-color: #214e89;
+$font-menu-item-color: rgba(255, 255, 255, 0.7);
+*{
+  font-family: 'Arial', sans-serif;
+}
+nav {
+  padding: 50px;
+  text-align: center;
+}
+nav > ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: inline-block;
+  background: $drop-menu-color;
+  border-radius: 5px;
+}
+nav > ul > li {
+  float: left;
+  width: 150px;
+  height: 65px;
+  line-height: 65px;
+  position: relative;
+  text-transform: uppercase;
+  font-size: 14px;
+  color: $font-drop-menu-color;
+  cursor: pointer;
+}
+nav > ul > li:hover {
+  background: $drop-menu-hover-color;
+  border-radius: 5px;
+}
+
+ul.drop-menu {
+  position: absolute;
+  top: 100%;
+  left: 0%;
+  width: 100%;
+  padding: 0;
+}
+ul.drop-menu li {
+  background: $menu-item-color;
+  color: $font-menu-item-color;
+}
+ul.drop-menu li:hover {
+  background: $menu-item-hover-color;
+}
+ul.drop-menu li:last-child {
+  border-radius: 0px 0px 5px 5px;
+}
+
+ul.drop-menu li {
+  display: none;
+}
+
+li:hover > ul.drop-menu li {
+  display: block;
+}
+
+li:hover > ul.drop-menu.menu-1{
+  perspective: 1000px;
+}
+
+//Menu 1
+
+li:hover > ul.drop-menu.menu-1 li{
+  opacity: 0;
+  @for $i from 1 through 6 {
+    &:nth-child(#{$i}) {
+      animation-name: menu1;
+      animation-duration: 200ms * $i;
+      animation-delay: (100ms * $i) - 200;
+      animation-timing-function: ease-in-out;
+      animation-fill-mode: forwards;
+    }
+  }
+}
+
+@keyframes menu1 {
+  0%{
+    opacity: 0;
+    transform: rotateY(-90deg) translateY(30px);
+  }
+  100%{
+    opacity: 1;
+    transform: rotateY(0deg) translateY(0px);
+  }
+}
+
+
+//Menu 2
+
+li:hover > ul.drop-menu.menu-2 li{
+  opacity: 0;
+  transform-origin: top center;
+  @for $i from 1 through 6 {
+    &:nth-child(#{$i}) {
+      animation-name: menu2;
+      animation-duration: 200ms * $i;
+      animation-delay: (100ms * $i) - 200;
+      animation-timing-function: ease-in-out;
+      animation-fill-mode: forwards;
+    }
+  }
+}
+
+@keyframes menu2 {
+  0%{
+    opacity: 0;
+    transform: rotateX(-90deg);
+  }
+  60%{
+    transform: rotateX(50deg);
+  }
+  100%{
+    opacity: 1;
+    transform: rotateX(0deg);
+  }
+}
+
+
+//Menu 3
+
+li:hover > ul.drop-menu.menu-3 li{
+  opacity: 0;
+
+  @for $i from 1 through 6 {
+    &:nth-child(#{$i}) {
+      animation-name: menu3;
+      animation-duration: 200ms * $i;
+      animation-delay: (100ms * $i) - 200;
+      animation-timing-function: ease-in-out;
+      animation-fill-mode: forwards;
+    }
+  }
+}
+
+@keyframes menu3 {
+  0%{
+    opacity: 0;
+    transform: scale(0.3) translateY(-60px);
+    border-radius: 25px;
+  }
+  50%{
+    border-radius: 10px;
+  }
+  80%{
+    transform: scale(1.2) translateY(0);
+  }
+  100%{
+    opacity: 1;
+    transform: scale(1) translateY(0px);
+  }
+}
+
+
+//Menu 4
+
+li:hover > ul.drop-menu.menu-4 li{
+  opacity: 0;
+  @for $i from 1 through 6 {
+    &:nth-child(#{$i}) {
+      animation-name: menu4;
+      animation-duration: 200ms * $i;
+      animation-delay: (100ms * $i) - 200;
+      animation-timing-function: ease-in-out;
+      animation-fill-mode: forwards;
+    }
+  }
+}
+
+@keyframes menu4 {
+  0%{
+    opacity: 0;
+    transform: rotate(-30deg) translateX(30px);
+    border-radius: 25px;
+  }
+  80%{
+    //transform: scale(1.2) translateY(0);
+    //border-radius: 10px;
+  }
+  100%{
+    opacity: 1;
+    transform: rotate(0deg) translateX(0px);;
+  }
+}
